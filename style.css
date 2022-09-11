@@ -8,6 +8,7 @@ body {
     display: flex; 
 }
 
+/* ===== navbar ===== */
 .container {
     height: 100%;
     width: 15%;
@@ -20,14 +21,26 @@ nav {
     height: 75%;
     width: 100px;
     background: #242424;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border-radius: 4px;
 }
 
+h1 {
+    color: white;
+}
+
+/* ===== main game area ===== */
 main {
     height: 100%;
     width: 85%;
     background: coral;
 }
 
+/* ===== custom variables ===== */
 :root {
     --castle: '\f447';
     --knight: '\f441';
