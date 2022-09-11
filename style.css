@@ -166,10 +166,41 @@ main {
 /* ===== game squares ===== */
 .square {
     border: 1px solid rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .square:hover {
     border: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+.player1 {
+    background: var(--p1-bg);
+    color: var(--p1-color);
+    border: 6px solid var(--p1-border);
+    box-shadow: 0 0 0 2px var(--p1-box-shadow);
+}
+
+.player2 {
+    background: var(--p2-bg);
+    color: var(--p2-color);
+    border: 6px solid var(--p2-border);
+    box-shadow: 0 0 0 2px var(--p2-box-shadow);   
+}
+
+.player1::after,
+.player2::after {
+    font-family: 'Font Awesome 5 Free';
+    font-size: 3rem;
+}
+
+.player1::after {
+    content: var(--p1-marker);
+}
+
+.player2::after {
+    content: var(--p2-marker);
 }
 
 /* ===== custom variables ===== */
