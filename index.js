@@ -37,14 +37,17 @@ const game = (() => {
     const gameMessage = document.getElementById('game-message')
     const subText = document.getElementById('subtext')
 
+    // create players
     const playerOne = createPlayer('Player One', 'player1');
     const playerTwo = createPlayer('Player Two', 'player2');
 
+    // game starting point
     let availableSpots = 9;
     let num = Math.floor(Math.random() * 2);
     let activePlayer = num === 0 ? playerOne : playerTwo;
     let gameWon = false;
 
+    // all possible wins
     const possibleWins = [
         [0, 1, 2],
         [3, 4, 5],
@@ -56,18 +59,22 @@ const game = (() => {
         [2, 4, 6]
     ]
 
+    // check for a win
     function checkWin() {
 
     }
 
+    // alert current player's turn
     function alertPlayer() {
 
     }
 
+    // change turn to next player
     function nextPlayer() {
 
     }
 
+    // declare tie of nobody wins
     function declareTie() {
 
     }
