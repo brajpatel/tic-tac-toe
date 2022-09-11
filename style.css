@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex; 
+}
+
+.container {
+    height: 100%;
+    width: 15%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav {
+    height: 75%;
+    width: 100px;
+    background: #242424;
+}
+
+main {
+    height: 100%;
+    width: 85%;
+    background: coral;
+}
+
+:root {
+    --castle: '\f447';
+    --knight: '\f441';
+    --dragon: '\f6d5';
+    --wizard: '\f6e8';
+
+    --white: white;
+    --dark-grey: #242424;
+    --black: black;
+
+    --crimson: crimson;
+    --darkened-crimson: rgb(152, 7, 36);
+    --blue: rgb(32, 179, 209);
+    --darkened-blue: rgb(7, 121, 150);
+    --dark-blue: rgb(0, 75, 187);
+}
+
+.default {
+    --grid-border: var(--dark-grey);
+    --selected-box-shadow: var(--dark-grey);
+
+    --p1-marker: var(--castle);
+    --p1-bg: var(--white);
+    --p1-color: var(--dark-grey);
+    --p1-border: var(--dark-grey);
+    --p1-box-shadow: var(--dark-grey);
+    --p2-marker: var(--knight);
+    --p2-bg: var(--dark-blue);
+    --p2-color: var(--white);
+    --p2-border: var(--white);
+    --p2-box-shadow: var(--dark-blue);
+}
+
+.color {
+    --grid-border: var(--darkened-crimson);
+    --selected-box-shadow: var(--white);
+
+    --p1-marker: var(--dragon);
+    --p1-bg: var(--crimson);
+    --p1-color: var(--black);
+    --p1-border: var(--darkened-crimson);
+    --p1-box-shadow: var(--white);
+    --p2-marker: var(--wizard);
+    --p2-bg: var(--blue);
+    --p2-color: var(--black);
+    --p2-border: var(--darkened-blue);
+    --p2-box-shadow: var(--white);
+}
