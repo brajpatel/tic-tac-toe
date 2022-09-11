@@ -2,9 +2,10 @@
 const toggleTheme = (() => {
     const body = document.querySelector('body');
     const changeTheme = document.getElementById('change-theme-btn');
+
     changeTheme.addEventListener('click', () => {
         body.classList.toggle('color');
-    })
+    });
 })();
 
 // create players
@@ -12,7 +13,7 @@ const createPlayer = (name, marker) => {
     return {
         name,
         marker
-    }
+    };
 };
 
 // gameboard
@@ -29,30 +30,39 @@ const gameBoard = (() => {
     board.forEach(() => {
         const square = document.createElement('div');
         square.classList.add('square');
-        grid.appendChild(square)
+        grid.appendChild(square);
     })
 
     Array.from(grid.children).forEach((square, index) => {
         square.addEventListener('click', () => {
+            // add player marker to the board
             square.classList.add(game.activePlayer.marker);
             square.setAttribute('data', game.activePlayer.marker);
 
+            // replace corresponding array index with player marker
             board[index] = game.activePlayer.marker;
 
+            // make a selected square unselectable
             square.style.pointerEvents = 'none';
 
+            // keep track of number of available spots on the board
             game.availableSpots -= 1;
 
+            // check for a win after each move is made
             game.checkWin();
 
+            // if the game has not been won yet
             if(game.gameWon === false) {
+                // alert the next player to take their turn
                 if(game.availableSpots > 0) {
-
+                    game.alertPlayer();
+                    game.nextPlayer();
                 }
-                else {
+                // declare a tie if no moves are available
+                else if(game.availableSpots === 0) {
                     game.declareTie();
                 }
-            }
+            };
         });
     });
 })();
@@ -87,29 +97,46 @@ const game = (() => {
 
     // check for a win
     function checkWin() {
-        possibleWins.forEach((item) => {
-            
+        possibleWins.forEach((index) => {
+            if(gameBoard.board[index[0]] === activePlayer.marker &&
+                gameBoard.board[index[1]] === activePlayer.marker &&
+                gameBoard.board[index[2]] === activePlayer.marker) {
+                    gameMessage.textContent = `${activePlayer.name} wins!`
+                    gameWon = true;
+                }
         })
     }
 
     // alert current player's turn
     function alertPlayer() {
-
+        activePlayer === playerOne ? subText.textContent = playerTwo.name : subText.textContent = playerOne.name;
     }
 
     // change turn to next player
     function nextPlayer() {
-
-    }
+        activePlayer === playerOne ? activePlayer = playerTwo : activePlayer = playerOne;
+    };
 
     // declare tie of nobody wins
     function declareTie() {
-        gameMessage.textContent = 'This game was a tie!'
+        gameMessage.textContent = 'This game was a tie!';
     }
 
     return {
+        availableSpots,
+        activePlayer,
+        gameWon,
         alertPlayer,
         nextPlayer,
         declareTie
-    }
+    };
+})();
+
+// restart game button
+const restartGame = (() => {
+    const restartGameBtn = document.getElementById('restart-game-btn')
+
+    restartGameBtn.addEventListener('click', () => {
+        window.location.reload();
+    });
 })();
