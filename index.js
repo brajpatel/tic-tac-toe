@@ -18,17 +18,43 @@ const createPlayer = (name, marker) => {
 // gameboard
 const gameBoard = (() => {
     const grid = document.getElementById('grid');
-    let board = [];
 
+    // make array length 9
+    let board = [];
     for(let i = 0; i < 9; i++) {
         board.push(i);
     }
 
+    // create and add squares to the gameboard
     board.forEach(() => {
         const square = document.createElement('div');
         square.classList.add('square');
         grid.appendChild(square)
     })
+
+    Array.from(grid.children).forEach((square, index) => {
+        square.addEventListener('click', () => {
+            square.classList.add(game.activePlayer.marker);
+            square.setAttribute('data', game.activePlayer.marker);
+
+            board[index] = game.activePlayer.marker;
+
+            square.style.pointerEvents = 'none';
+
+            game.availableSpots -= 1;
+
+            game.checkWin();
+
+            if(game.gameWon === false) {
+                if(game.availableSpots > 0) {
+
+                }
+                else {
+                    game.declareTie();
+                }
+            }
+        });
+    });
 })();
 
 // game
@@ -61,7 +87,9 @@ const game = (() => {
 
     // check for a win
     function checkWin() {
-
+        possibleWins.forEach((item) => {
+            
+        })
     }
 
     // alert current player's turn
@@ -76,7 +104,7 @@ const game = (() => {
 
     // declare tie of nobody wins
     function declareTie() {
-
+        gameMessage.textContent = 'This game was a tie!'
     }
 
     return {
