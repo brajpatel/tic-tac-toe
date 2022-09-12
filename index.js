@@ -105,7 +105,7 @@ const game = (() => {
                 gameBoard.board[index[1]] === this.activePlayer.marker &&
                 gameBoard.board[index[2]] === this.activePlayer.marker) {
                     gameMessage.textContent = `${activePlayer.name} wins!`
-                    gameWon = true;
+                    this.gameWon = true;
                 }
         })
     };
