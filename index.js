@@ -105,7 +105,7 @@ const game = (() => {
                 gameBoard.board[index[1]] === this.activePlayer.marker &&
                 gameBoard.board[index[2]] === this.activePlayer.marker) {
                     gameMessage.textContent = `${this.activePlayer.name} wins!`
-                    gameMessage.style.fontSize = '2.5rem';
+                    gameMessage.style.fontSize = '2rem';
                     gameMessage.style.color = 'rgb(0, 220, 110)';
                     this.gameWon = true;
                 }
@@ -125,7 +125,7 @@ const game = (() => {
     // declare tie of nobody wins
     function declareTie() {
         gameMessage.textContent = 'This game was a tie!';
-        gameMessage.style.fontSize = '2.5rem';
+        gameMessage.style.fontSize = '2rem';
         gameMessage.style.color = 'rgb(0, 155, 210)';
     };
 
