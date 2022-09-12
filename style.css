@@ -270,6 +270,7 @@ main {
 
 .player1::after,
 .player2::after {
+    font-weight: bold;
     font-family: 'Font Awesome 5 Free';
     font-size: calc(2rem + 0.390625vw);
 }
