@@ -151,10 +151,62 @@ main {
     gap: 30px;
 }
 
-.game-message {
-    font-size: calc(1.4rem + 0.390625vw);
+/* ===== display game messages ===== */
+.game-messages {
+    text-align: center;
 }
 
+.choose-turn-message {
+    color: rgb(152, 58, 206);
+    font-size: calc(1.5rem + 0.390625vw);
+    position: absolute;
+    animation: fadeOut 0.5s ease 3s forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.choose-turn-message i {
+    margin-left: 10px;
+    animation: rotate 1s infinite ease;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(180deg);
+    }
+}
+
+.game-message {
+    font-size: calc(1.5rem + 0.390625vw);
+    opacity: 0;
+    animation: fadeIn 0.5s ease 3.4s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ===== game grid ===== */
 .grid {
     height: 60vh;
     width: 60vh;
