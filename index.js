@@ -105,7 +105,7 @@ const game = (() => {
                 gameBoard.board[index[1]] === this.activePlayer.marker &&
                 gameBoard.board[index[2]] === this.activePlayer.marker) {
                     gameMessage.textContent = `${activePlayer.name} wins!`
-                    gameMessage.style.color = 'rgb(0, 200, 110)'
+                    gameMessage.style.color = 'rgb(0, 220, 110)'
                     this.gameWon = true;
                 }
         })
