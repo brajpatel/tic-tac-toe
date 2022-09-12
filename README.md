@@ -11,4 +11,4 @@ These are some of the challenges I faced while making this project:
 - 
 - 
 ## View Project
-You can view the library live by clicking [here](https://brajpatel.github.io/library/)
+You can view and play the tic-tac-toe game by clicking [here](https://brajpatel.github.io/tic-tac-toe/)
