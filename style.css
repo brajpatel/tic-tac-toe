@@ -8,7 +8,8 @@
 
 body {
     height: 100vh;
-    display: flex; 
+    display: flex;
+    background: #eaebea; 
 }
 
 /* ===== navbar ===== */
@@ -151,15 +152,18 @@ main {
 }
 
 .game-message {
-    font-size: 1.7rem;
+    font-size: calc(1.4rem + 0.390625vw);
 }
 
 .grid {
-    height: 450px;
-    width: 450px;
-    border: 4px solid var(--grid-border);
+    height: 60vh;
+    width: 60vh;
+    background: var(--white);
+    border: 6px solid var(--grid-border);
+    box-shadow: 0 0 18px 5px rgb(142, 142, 142, 0.7);
     border-radius: 4px;
     display: grid;
+    gap: 2px;
     grid-template: repeat(3, 1fr) / repeat(3, 1fr);
 }
 
@@ -194,7 +198,7 @@ main {
 .player1::after,
 .player2::after {
     font-family: 'Font Awesome 5 Free';
-    font-size: 3rem;
+    font-size: calc(2rem + 0.390625vw);
 }
 
 .player1::after {
@@ -233,10 +237,10 @@ main {
     --p1-border: var(--dark-grey);
     --p1-box-shadow: var(--dark-grey);
     --p2-marker: var(--knight);
-    --p2-bg: var(--dark-blue);
+    --p2-bg: var(--dark-grey);
     --p2-color: var(--white);
     --p2-border: var(--white);
-    --p2-box-shadow: var(--dark-blue);
+    --p2-box-shadow: var(--dark-grey);
 }
 
 .color {
