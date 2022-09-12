@@ -12,6 +12,27 @@ body {
     background: #eaebea; 
 }
 
+/* ===== credit box ===== */
+.credit {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    font-size: calc(15px + 0.390625vw);
+}
+
+.credit a {
+    color: var(--crimson);
+}
+
+.credit a:hover {
+    color: var(--blue);
+}
+
+.credit i {
+    margin-left: 8px;
+    font-size: calc(16px + 0.390625vw);
+}
+
 /* ===== navbar ===== */
 .container {
     height: 100%;
@@ -189,8 +210,8 @@ main {
 }
 
 .game-message {
-    font-size: calc(1.5rem + 0.390625vw);
     opacity: 0;
+    font-size: calc(1.5rem + 0.390625vw);
     animation: fadeIn 0.5s ease 3.4s forwards;
 }
 
@@ -226,7 +247,7 @@ main {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    transition: background 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .square:hover {
