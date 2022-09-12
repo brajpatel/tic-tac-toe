@@ -37,7 +37,6 @@ const gameBoard = (() => {
         square.addEventListener('click', () => {
             // add player marker to the board
             square.classList.add(game.activePlayer.marker);
-            square.setAttribute('data', game.activePlayer.marker);
 
             // replace corresponding array index with player marker
             board[index] = game.activePlayer.marker;
@@ -62,16 +61,18 @@ const gameBoard = (() => {
                 else if(game.availableSpots === 0) {
                     game.declareTie();
                 }
-            };
-        });
-    });
+            }
+        })
+    })
+
+    return { board }
 })();
 
 // game
 const game = (() => {
     // display game messages
-    const gameMessage = document.getElementById('game-message')
-    const subText = document.getElementById('subtext')
+    const gameMessage = document.getElementById('game-message');
+    const subText = document.getElementById('subtext');
 
     // create players
     const playerOne = createPlayer('Player One', 'player1');
@@ -93,7 +94,7 @@ const game = (() => {
         [2, 5, 8],
         [0, 4, 8],
         [2, 4, 6]
-    ]
+    ];
 
     // check for a win
     function checkWin() {
@@ -105,27 +106,28 @@ const game = (() => {
                     gameWon = true;
                 }
         })
-    }
+    };
 
     // alert current player's turn
     function alertPlayer() {
-        activePlayer === playerOne ? subText.textContent = playerTwo.name : subText.textContent = playerOne.name;
-    }
+        this.activePlayer === playerOne ? subText.textContent = playerTwo.name : subText.textContent = playerOne.name;
+    };
 
     // change turn to next player
     function nextPlayer() {
-        activePlayer === playerOne ? activePlayer = playerTwo : activePlayer = playerOne;
+        this.activePlayer === playerOne ? this.activePlayer = playerTwo : this.activePlayer = playerOne;
     };
 
     // declare tie of nobody wins
     function declareTie() {
         gameMessage.textContent = 'This game was a tie!';
-    }
+    };
 
     return {
         availableSpots,
         activePlayer,
         gameWon,
+        checkWin,
         alertPlayer,
         nextPlayer,
         declareTie
