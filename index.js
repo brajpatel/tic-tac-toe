@@ -31,7 +31,7 @@ const gameBoard = (() => {
         const square = document.createElement('div');
         square.classList.add('square');
         grid.appendChild(square);
-    })
+    });
 
     Array.from(grid.children).forEach((square, index) => {
         square.addEventListener('click', () => {
@@ -63,7 +63,7 @@ const gameBoard = (() => {
                 }
             }
         })
-    })
+    });
 
     return { board }
 })();
@@ -84,6 +84,8 @@ const game = (() => {
     let activePlayer = num === 0 ? playerOne : playerTwo;
     let gameWon = false;
 
+    subText.textContent = activePlayer.name;
+
     // all possible wins
     const possibleWins = [
         [0, 1, 2],
@@ -99,9 +101,9 @@ const game = (() => {
     // check for a win
     function checkWin() {
         possibleWins.forEach((index) => {
-            if(gameBoard.board[index[0]] === activePlayer.marker &&
-                gameBoard.board[index[1]] === activePlayer.marker &&
-                gameBoard.board[index[2]] === activePlayer.marker) {
+            if(gameBoard.board[index[0]] === this.activePlayer.marker &&
+                gameBoard.board[index[1]] === this.activePlayer.marker &&
+                gameBoard.board[index[2]] === this.activePlayer.marker) {
                     gameMessage.textContent = `${activePlayer.name} wins!`
                     gameWon = true;
                 }
